@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Milestone - 3</title>
+    <link rel="stylesheet" type ="text/css" href="./style.css" />
+
+</head>
+
+
+<body>
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+         <span class="close">&times;</span>
+         <p><h1>Milestone-3: Grid game.</h1><br><b>Learning Competencies</b>
+            <br>At the end of this milestone we will learn
+
+            1. Breaking down the problem<br>
+            2. Building web pages<br>
+            3. Creating efficient animations for web games<br>
+            4. Manipulating the document structure by using Document Object Model (DOM)<br>
+            5. Storing your application data in the client-side database<br>
+            6. Working with server and fetching data from it by manipulating it<br>
+            7. Process of developing a product<br>
+            <b>Problem Statement:</b><br>
+            It's play time, people!
+            Many kids initial fascination with computers, like that of nerdy kids, had to do with computer games. They were drawn into the tiny simulated worlds that they could manipulate and in which stories (sort of) unfolded—more, I suppose, because of the way they projected their imagination into them than because of the possibilities they actually offered.
+            I don’t wish a career in game programming on anyone. Much like the music industry, the discrepancy between the number of eager young people wanting to work in it and the actual demand for such people creates a rather unhealthy environment. But writing games for fun is amusing.
+            In this milestone, you are going to create one of the following grid games.
+            We will use the browser DOM to display the game, and we’ll read user input by handling key events.<br>
+            <b>A. 2048 Game</b><br>
+            <b>B. Tic-tac-toe</b><br>
+            <b>C. Image Puzzle game</b>
+        </p>
+        </div>
+    </div>
+    <div id="teamModal" class="modal">
+        <div class="modal-content">
+         <span class="close">&times;</span>
+         <p><h1> <center>1. Samrat Mallick</center></h1><br>
+            <h1><center>2. Raghavendra raju ballur</center></h1><br>
+            <h1><center>3. Craig Murzello</center></h1>
+        </p>
+        </div>
+    </div>
+<div id="main">
+<div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#" onclick="about()">About</a>
+        <a href="#" onclick="team()">Team Members</a>
+</div>
+<span onclick="openNav()" id="DetailMenu">&#9776; Details</span>
+<div class="container">
+<button class="game" id="Rummy  " onclick= "Rummy()">1. Rummy Game </button>
+<button class="game" id="Mixormatch" onclick= "Mixormatch()">2. Mix Or Match Game </button>
+</div>
+</div>
+<script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
