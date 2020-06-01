@@ -1,0 +1,126 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#main{
+    height: 100%;
+    width: 100%;
+    background: rgb(21, 49, 14);
+    position: absolute;
+    margin: 0px;
+}
+img {
+    height: 35%;
+    width: 14%;
+    border-radius: 30px;
+    position: absolute;
+    left: 43%;
+    top: 10%;
+}
+#board{
+    position: absolute;
+    height: 50%;
+    width: 80%;
+    background-color: rgba(77, 0, 0, 0.85);
+    left: 10%;
+    top: 44%;
+    border-radius: 70px;
+}
+.comCard{
+    border: 1px solid black;
+}
+#player2{
+    left: -4%;
+    top: 33%;
+    position: absolute;
+    transform: rotateZ(90deg);
+    height: 25%;
+    width: 20%;
+}
+#player3{
+    left: 84%;
+    top: 35%;
+    position: absolute;
+    transform: rotateZ(270deg);
+    height: 25%;
+    width: 20%;
+}
+#btn-deal{
+    display: block;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    height: 15%;
+    width: 8%;
+    border-radius: 10px;
+}
+#btn-show{
+    display: none;
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    height: 15%;
+    width: 8%;
+    border-radius: 10px;
+}
+#jokerCard{
+    position: absolute;
+    left: 43%;
+    top: 23%;
+    transform: rotateZ(270deg);
+    border-radius: 5px;
+    height: 15%;
+    width: 5%;
+    
+}
+#btn-close{
+    position: absolute;
+    left: 47%;
+    top: 21%;
+    height: 20%;
+    width: 4.1%;
+    background: url(./Images/Cards/purple_back.png) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border-radius: 5px;
+}
+
+#openDeck{
+    position: absolute;
+    left: 60%;
+    top: 22%;
+    border-radius: 5px;
+    height: 20%;
+    width: 4%;
+    opacity: 0;
+}
+.userCard{
+    position: absolute;
+    /* border: 1px solid black; */
+    left: 15%;
+    top: 55%;
+    height: 35%;
+    width: 70%;
+    
+}
+#playerName{
+    position: relative;
+    height: 18%;
+    width: 98%;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 5px;
+    left: 1%;
+    color: aliceblue;
+}
+.card{
+    position: relative;
+    float: left;
+    width: 7.41%;
+    height: 80%;
+    margin-left: 1px;
+    border-radius: 2px;
+    opacity: 0;
+}
