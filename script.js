@@ -1,12 +1,12 @@
 function openNav() {
   document.getElementById("mySidenav").style.width = "250px";
   document.getElementById("main").style.marginLeft = "250px";
-  document.body.style.backgroundColor = "rgba(42, 3, 95, 0.82)";
+  document.body.style.background = "radial-gradient(#2598a7, rgb(23, 20, 98))";
 }
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
-  document.body.style.backgroundColor = "rgba(156, 0, 47, 1)";
+  document.body.style.background = "radial-gradient(rgb(233, 53, 92), rgb(56, 2, 2))";
 }
 
 
