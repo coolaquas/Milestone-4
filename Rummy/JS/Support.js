@@ -5,10 +5,7 @@ var hand = []; // hand = 0
 var floatCard = []; // open Deck = 0
 var jokerCard;
 $(document).ready(function() {
-    createDeck(game); // 52 sorted card.
-    shuffle(game); //52 cards unsorted.
-    deal(game); // Game = 52; POP 13 cards and pushed it to Hand; hand = 13
-    
+ready();  
 });
 $("#btn-deal").click(function(){
     $("#btn-deal").hide();
@@ -40,5 +37,14 @@ $("#openDeck").click(function(){
 });
 
 $("#btn-show").click(function(){
-alert("show button clicked");
+    let currentHand = setFinder(hand);
+    if(currentHand.length < 13){
+        console.log("you win");
+        document.getElementById('victory-text').classList.add('visible');
+    } else {
+        console.log("you lose");
+        document.getElementById('game-over-text').classList.add('visible');
+    }
 });
+
+

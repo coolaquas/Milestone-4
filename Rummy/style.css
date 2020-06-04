@@ -5,10 +5,44 @@
 #main{
     height: 100%;
     width: 100%;
-    background: rgb(21, 49, 14);
+    background: radial-gradient(rgb(14, 157, 161), rgb(21, 65, 3));
     position: absolute;
     margin: 0px;
 }
+
+.overlay-text {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    display: none;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #FF6D00;
+    font-family: Creepy, serif;
+    transition: background-color 500ms, font-size 500ms;
+  }
+  .overlay-text-small {
+    font-size: .3em;
+  }
+  
+  .overlay-text.visible {
+    display: flex;
+    animation: overlay-grow 500ms forwards;
+  }
+  @keyframes overlay-grow {
+    from {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 0;
+    }
+    to {
+      background-color: rgba(0, 0, 0, .8);
+      font-size: 10em;
+    }
+  }
 img {
     height: 35%;
     width: 14%;
@@ -21,13 +55,25 @@ img {
     position: absolute;
     height: 50%;
     width: 80%;
-    background-color: rgba(77, 0, 0, 0.85);
     left: 10%;
     top: 44%;
     border-radius: 70px;
+    background-image: linear-gradient(rgb(14, 157, 161), rgb(175, 3, 32));
 }
 .comCard{
     border: 1px solid black;
+    color: chartreuse;
+    background: rgba(0, 0, 0, 0.726);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+.comCard:hover{
+    font-size: 20px;
+    color: cornflowerblue;
+    box-shadow:  0 0 10px chartreuse,0 0 40px chartreuse,0 0 80px chartreuse;
+    transition: .6s;
 }
 #player2{
     left: -4%;
@@ -36,6 +82,7 @@ img {
     transform: rotateZ(90deg);
     height: 25%;
     width: 20%;
+
 }
 #player3{
     left: 84%;
@@ -53,6 +100,12 @@ img {
     height: 15%;
     width: 8%;
     border-radius: 10px;
+}
+#btn-deal:hover{
+    background: radial-gradient(rgb(191, 245, 247), rgb(3, 0, 0));
+    color: rgb(175, 10, 32);
+    font-size: 30px;
+    transition: .9s;
 }
 #btn-show{
     display: none;

@@ -90,29 +90,31 @@ margin-left: 50px;
     min-width: 40%;
     min-height: 70%;
     padding: 2%;
-    border-radius: 7px;
+    border-radius: 15px;
     font-size: 30px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    background: #031321;
+    background: radial-gradient(rgb(10, 116, 110), rgb(7, 5, 80));
     float: left
 }
 
 #Rummy{
     top: 20%;
+    left: 30%;
     position: absolute;
     display: inline-block;
-    color: #2196f3;
+    color: #f32160;
     text-transform: uppercase;
     letter-spacing: 4px;
     text-decoration: none;
     font-size: 48px;
     overflow: hidden;
+    box-shadow: 10px 10px 5px rgb(0, 0, 3);
 }
 #Rummy:hover{
-    color: #255784;
+    background: radial-gradient(rgb(37, 32, 33), rgb(5, 0, 0));
     box-shadow:  0 0 10px red,0 0 40px red,0 0 80px red;
     transition-delay: 1.1s;
 }
@@ -182,6 +184,7 @@ margin-left: 50px;
     font-size: 40px;
     overflow: hidden;
     transition: 0.2s;
+    display: none; /* temp for presentation*/
 }
 #Mixormatch:hover{
     color: #255784;

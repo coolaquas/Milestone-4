@@ -1,13 +1,30 @@
-//Create a Deck of 52 cards.
+function ready(){
+    createDeck(game); // 52 sorted card.
+    shuffle(game); //52 cards unsorted.
+    deal(game); // Game = 52; POP 13 cards and pushed it to Hand; hand = 13
+    let overlays = Array.from(document.getElementsByClassName('overlay-text'));
+    overlays.forEach(overlay => {
+        overlay.addEventListener('click', () => {
+            overlay.classList.remove('visible');
+            location.reload();
+        });
+    });
+}
+
+
+//Create a Deck of 52 cards. // Unit Test Done
 function createDeck(deck){
+    if(Array.isArray(deck)){
     for(let i=0; i < suits.length;i++){
         for(let j=0; j<values.length;j++){
                 deck.push(suits[i]+ values[j]);
             }
         }
     return deck;
+    } else {
+        return false;
+    }
 }
-
 // Shuffle the deck
 function shuffle(deck){                                              // Fisher-Yates Shuffle Algorithm
      let counter = deck.length, temp, i;
@@ -88,6 +105,31 @@ function openDeck(){
 }
 
 
+function setFinder(deck){ //checks sets from a deck
+    let temp= [], t1 = [];
+    for(var idx in deck){
+    temp.push(deck[idx].substring(1, 3));
+    }
+    filtered = temp.filter(function (a) {
+        return this[a] <= 2;
+    }, temp.reduce(function (r, a) {
+        r[a] = (r[a] || 0) + 1;
+        return r;
+    }, {}));
+for(i=0;i<temp.length;i++){
+    loop1:
+        for(j=0;j<filtered.length;j++){
+            if(temp[i] == filtered[j]){
+                t1.push(deck[i]);
+                break loop1;
+            }
+    
+        }
+    }
+    deck = t1;
+    return (deck);
+}
+
 // class Card {
     // constructor(suits, values) {
         // this.suits = suits;
@@ -140,3 +182,7 @@ function openDeck(){
     // return hand;
     // }
 // }
+
+// let suits = ["H", "D"]; // for test
+// let values = [2,3,4]; // for test
+// module.exports = createDeck;
