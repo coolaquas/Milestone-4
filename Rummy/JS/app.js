@@ -139,95 +139,105 @@ function sortArray(arr) {
     let b = arr;
     let c = [];
     var alpha = "";
-    alpha = b[0].charAt(0);
-    for (var ind in b) {
-        c.push(b[ind].substring(1, 3));
+     alpha = b[0].charAt(0);
+     if(arr.includes( alpha + "J") == false && arr.includes( alpha + "K") == false && arr.includes( alpha + "Q") == false &&
+     arr.includes( alpha + "A") == false ){
+        arr.sort();
+        if(arr.includes(alpha + "10") == true){
+            arr.splice(0,1);
+            arr.push(alpha +"10");
+            return arr;
+        }
+     }
+    for (var ind in b){
+        c.push(b[ind].substring(1,3));
     }
     c.sort();
     var no = [];
-
-    if (c.includes("10") == true) {
-        for (var i in c) {
-            if (c[i] == "J" || c[i] == "K" || c[i] == "A" || c[i] == "Q") {
-                var ind_no = i;
-                var val = []
-                c.splice(0, 1);
-                c.splice(i - 1, 0, "10");
-                val = c.slice(i, c.length);
-                for (var i in val) {
+    
+    
+    if(c.includes("10") == true){
+        for(var i in c){
+          if(c[i] == "J" || c[i] == "K" ||c[i] == "A" ||c[i] == "Q"){
+              var ind_no = i;
+              var val = []
+              c.splice(0,1);
+              c.splice(i-1,0,"10");
+              val = c.slice(i,c.length);
+              for(var i in val){
                     no[i] = val[i];
-                }
-                break;
-            }
+              }
+              break;
+          }
         }
     }
-    if (c.includes("10") == false) {
-        for (var i in c) {
-            if (c[i] == "J" || c[i] == "K" || c[i] == "A" || c[i] == "Q") {
-                var ind_no = i;
-                var val = []
-                val = c.slice(i, c.length);
-                c.splice(i, c.length - i);
-                for (var i in val) {
+    if(c.includes("10") == false){
+        for(var i in c){
+          if(c[i] == "J" || c[i] == "K" ||c[i] == "A" ||c[i] == "Q"){
+              var ind_no = i;
+              var val = []
+              val = c.slice(i,c.length);
+              c.splice(i,c.length - i);
+              for(var i in val){
                     no[i] = val[i];
-                }
-                break;
-            }
+              }
+              break;
+          }
         }
     }
-    if (no.length == 3 && no.includes("Q") == true && no.includes("A") == true && no.includes("K") == true) {
+    if(no.length == 3 && no.includes("Q") == true && no.includes("A") == true && no.includes("K") == true){
         no[0] = "Q";
         no[1] = "K";
         no[2] = "A";
     }
-    if (no.length == 3 && no.includes("Q") == true && no.includes("J") == true && no.includes("K") == true) {
+    if(no.length == 3 && no.includes("Q") == true && no.includes("J") == true && no.includes("K") == true){
         no[0] = "J";
         no[1] = "Q";
         no[2] = "K";
     }
-
-    if (no.length == 2 && no.includes("Q") == true && no.includes("A") == true) {
+    
+    if(no.length == 2 && no.includes("Q") == true && no.includes("A") == true){
         no[0] = "Q";
         no[1] = "A";
     }
-    if (no.length == 2 && no.includes("K") == true && no.includes("A") == true) {
+    if(no.length == 2 && no.includes("K") == true && no.includes("A") == true){
         no[0] = "K";
         no[1] = "A";
     }
-
-    if (no.length == 2 && no.includes("Q") == true && no.includes("K") == true) {
-        no[0] = "Q";
-        no[1] = "K";
-    }
-    if (no.length >= 2 && no.includes("A") == true && no.includes("J") == true) {
-        no.splice(no.indexOf("A"), 1);
-        no.splice(no.indexOf("J"), 1);
-        no.splice(0, 0, "J");
-        no.splice(no.length, 0, "A");
-        if (no.includes("K") == true && no.includes("Q") == true && no.indexOf("K") < no.indexOf("Q")) {
-            var no_1 = no.indexOf("K");
-            var no_2 = no.indexOf("Q");
-            no[no_1] = "Q";
-            no[no_2] = "K";
+    
+        if(no.length == 2 && no.includes("Q") == true && no.includes("K") == true){
+                no[0] = "Q";
+                no[1] = "K";
         }
-    }
-    var new_arr = [];
-    for (var i = 0; i < c.length; i++) {
-        new_arr.push(c[i]);
-        if (c[i] == "10") {
-            break;
+       if(no.length >= 2 && no.includes("A") == true && no.includes("J") == true){
+            no.splice(no.indexOf("A"),1);
+            no.splice(no.indexOf("J"),1);
+            no.splice(0,0,"J");
+            no.splice(no.length , 0,"A");
+            if(no.includes("K") == true && no.includes("Q") == true && no.indexOf("K") < no.indexOf("Q") ){
+                var no_1 = no.indexOf("K");
+                var no_2  = no.indexOf("Q");
+                no[no_1] = "Q";
+                    no[no_2] = "K";
+            }
         }
-
-    }
-    for (var i in no) {
-        new_arr.push(no[i])
-    };
-    c = new_arr;
-    for (var j in c) {
-        c[j] = alpha + c[j];
-    }
-    return c;
-}
+        var new_arr = [];
+      for(var i = 0 ; i < c.length ; i++){
+          new_arr.push(c[i]);
+            if(c[i] == "10"){
+                break;
+            }
+            
+      }
+        for(var i in no){
+            new_arr.push(no[i])
+        };
+        c = new_arr;
+        for(var j in c ){
+            c[j] = alpha + c[j]; 
+        }
+            return c ;
+     }
 
 
 function pureFinder(deck) {  //checks Pure Combination from a deck
@@ -388,4 +398,4 @@ function setFinder(deck) { //checks Sets combination from from a deck
 
 // let suits = ["H", "D"]; // for test
 // let values = [2,3,4]; // for test
-// module.exports = createDeck;
+// module.exports = createDeck; // for test
