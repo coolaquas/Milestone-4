@@ -38,14 +38,13 @@ $("#openDeck").click(function(){
 
 $("#btn-show").click(function(){
     let currentHand = sortHand(hand);
-    console.log(currentHand);
-    // let currentHand1 = pureFinder(currentHand);
-    // let currentHand2 = setFinder(currentHand1); 
-    // if(currentHand2.length < 7){
-    //     document.getElementById('victory-text').classList.add('visible');
-    // } else {
-    //     document.getElementById('game-over-text').classList.add('visible');
-    // }
+    let currentHand1 = pureFinder(currentHand);
+    let currentHand2 = setFinder(currentHand1); 
+    if(currentHand2.length < 7){
+        document.getElementById('victory-text').classList.add('visible');
+    } else {
+        document.getElementById('game-over-text').classList.add('visible');
+    }
 });
 
 
