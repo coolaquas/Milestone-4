@@ -37,14 +37,17 @@ $("#openDeck").click(function(){
 });
 
 $("#btn-show").click(function(){
-    let currentHand = setFinder(hand);
-    if(currentHand.length < 13){
-        console.log("you win");
+    let currentHand = setFinder(pureFinder(hand));
+    
+
+
+    if(currentHand.length < 7){
         document.getElementById('victory-text').classList.add('visible');
     } else {
-        console.log("you lose");
         document.getElementById('game-over-text').classList.add('visible');
     }
 });
+
+
 
 

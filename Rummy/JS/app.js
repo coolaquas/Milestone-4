@@ -104,6 +104,81 @@ function openDeck(){
     }
 }
 
+function pureFinder(deck){  //checks sets from a deck
+    let temp = [], jokerCount = 0,filtered = [[],[],[],[]],separatedCard = [[],[],[],[]],output = [[],[],[],[]];
+    for(var idx in deck){
+        temp.push(deck[idx].substring(1, 3));
+        }
+    for(var idx in deck){
+        if (deck[idx].substring(0,1) == "C"){
+             separatedCard[0].push (temp[idx]);   
+             filtered[0].push(deck[idx]);   
+        } else if (deck[idx].substring(0,1) == "D"){
+            separatedCard[1].push (temp[idx]);
+            filtered[1].push(deck[idx]);   
+        }else if (deck[idx].substring(0,1) == "H"){
+            separatedCard[2].push (temp[idx]);
+            filtered[2].push(deck[idx]);   
+        } else {
+            separatedCard[3].push (temp[idx]);
+            filtered[3].push(deck[idx]);   
+    
+        }
+    }
+    for(i = 0; i<separatedCard.length; i++){
+        if(separatedCard[i].length > 2){
+    loop2:
+            for(j=0; j< separatedCard[i].length; j++){
+                function T1(){
+                    output[i].splice((j-1),1);
+                    output[i].splice((j-2),1);
+                    j++;
+                }
+                if(typeof(separatedCard[i][j]) == "number"){
+                    output[i].push(separatedCard[i][j]);
+                    while((separatedCard[i][j+1])- (separatedCard[i][j]) < 2){
+                        output[i].splice(j,1);
+                        j++;
+                    }
+                }else {
+                   if (separatedCard[i][j-2] == 9  && separatedCard[i][j-1] == 10 && separatedCard[i][j] == "J"){
+                        T1();
+                        } else if ( separatedCard[i][j-2] == 10 && separatedCard[i][j-1] == "J"&& separatedCard[i][j] == "Q"){
+                            T1();
+                            } else if ( separatedCard[i][j-2] == "J"&& separatedCard[i][j-1] == "Q"&& separatedCard[i][j] == "K"){
+                                T1();
+                                } else if ( separatedCard[i][j-2] == "Q"&& separatedCard[i][j-1] == "K"&& separatedCard[i][j] == "A"){
+                                    T1();
+                                    } else if ( separatedCard[i][j-2] == "A"&& separatedCard[i][j-1] == 2 && separatedCard[i][j] == 3){
+                                        T1();
+                                        } else {
+                                            output[i].push(separatedCard[i][j]);
+                                            }
+    
+                }
+            }
+                    
+        } else {
+            for(z = 0;z<separatedCard[i].length; z++)
+            output[i].push(separatedCard[i][z]);
+        }
+    
+    }
+    temp = [];
+    for(m = 0; m<separatedCard.length; m++){
+        for(n = 0; n<separatedCard[m].length; n++){
+            loop3:
+            for(p = 0;p<output.length;p++){
+                if(separatedCard[m][n] == output[m][p]){
+                    temp.push(filtered[m][n]);
+                    break loop3;
+                }
+            }
+        }
+    }
+    deck = temp;
+    return(deck);
+}
 
 function setFinder(deck){ //checks sets from a deck
     let temp= [], t1 = [];
@@ -129,7 +204,6 @@ for(i=0;i<temp.length;i++){
     deck = t1;
     return (deck);
 }
-
 // class Card {
     // constructor(suits, values) {
         // this.suits = suits;
