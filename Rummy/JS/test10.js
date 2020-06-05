@@ -38,7 +38,7 @@
 // //                      var val = " ";
 // //                      val = checkArr[f][s]; 
 // //                     //  console.log(val); 
-                     
+
 // //                      if(val.length  > 2){
 // //                     //    document.write(fix(checkArr[f]))
 // //                         //  var ar = fix(checkArr[f])
@@ -78,7 +78,7 @@
 
 // //     console.log(checkArr);
 // //             // document.write(checkArr+ "<br>");
-            
+
 // //             // document.write(no);
 
 
@@ -138,7 +138,7 @@
 
 //             }
 //         }
-                
+
 //     } else {
 //         for(z = 0;z<separatedCard[i].length; z++)
 //         output[i].push(separatedCard[i][z]);
@@ -162,3 +162,102 @@
 // console.log(separatedCard);
 // console.log(output);
 // console.log(temp);
+
+["C3", "C5", "CQ", "D10", "D9", "DQ", "H2", "H4", "H6", "H7", "S5", "S6", "SJ"]
+
+
+let b = ["D10", "D7", "D5", "D9"];
+function sortHand(arr_){
+    let b = arr_;
+    let c = [];
+    var alpha = "";
+     alpha = b[0].charAt(0);
+    for (var ind in b){
+        c.push(b[ind].substring(1,3));
+    }
+    c.sort();
+    var no = [];
+    
+    if(c.includes("10") == true){
+        for(var i in c){
+          if(c[i] == "J" || c[i] == "K" ||c[i] == "A" ||c[i] == "Q"){
+              var ind_no = i;
+              var val = []
+              c.splice(0,1);
+              c.splice(i-1,0,"10");
+              val = c.slice(i,c.length);
+              for(var i in val){
+                    no[i] = val[i];
+              }
+              break;
+          }
+        }
+    }
+    if(c.includes("10") == false){
+        for(var i in c){
+          if(c[i] == "J" || c[i] == "K" ||c[i] == "A" ||c[i] == "Q"){
+              var ind_no = i;
+              var val = []
+              val = c.slice(i,c.length);
+              c.splice(i,c.length - i);
+              for(var i in val){
+                    no[i] = val[i];
+              }
+              break;
+          }
+        }
+    }
+    if(no.length == 3 && no.includes("Q") == true && no.includes("A") == true && no.includes("K") == true){
+        no[0] = "Q";
+        no[1] = "K";
+        no[2] = "A";
+    }
+    if(no.length == 3 && no.includes("Q") == true && no.includes("J") == true && no.includes("K") == true){
+        no[0] = "J";
+        no[1] = "Q";
+        no[2] = "K";
+    }
+    
+    if(no.length == 2 && no.includes("Q") == true && no.includes("A") == true){
+        no[0] = "Q";
+        no[1] = "A";
+    }
+    if(no.length == 2 && no.includes("K") == true && no.includes("A") == true){
+        no[0] = "K";
+        no[1] = "A";
+    }
+    
+        if(no.length == 2 && no.includes("Q") == true && no.includes("K") == true){
+                no[0] = "Q";
+                no[1] = "K";
+        }
+       if(no.length >= 2 && no.includes("A") == true && no.includes("J") == true){
+            no.splice(no.indexOf("A"),1);
+            no.splice(no.indexOf("J"),1);
+            no.splice(0,0,"J");
+            no.splice(no.length , 0,"A");
+            if(no.includes("K") == true && no.includes("Q") == true && no.indexOf("K") < no.indexOf("Q") ){
+                var no_1 = no.indexOf("K");
+                var no_2  = no.indexOf("Q");
+                no[no_1] = "Q";
+                    no[no_2] = "K";
+            }
+        }
+        var new_arr = [];
+      for(var i = 0 ; i < c.length ; i++){
+          new_arr.push(c[i]);
+            if(c[i] == "10"){
+                break;
+            }
+            
+      }
+        for(var i in no){
+            new_arr.push(no[i])
+        };
+        c = new_arr;
+        for(var j in c ){
+            c[j] = alpha + c[j]; 
+        }
+            return c ;
+     }
+console.log(sortHand(b));
