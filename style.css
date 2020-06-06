@@ -102,7 +102,6 @@ margin-left: 50px;
 
 #Rummy{
     top: 20%;
-    left: 30%;
     position: absolute;
     display: inline-block;
     color: #f32160;
@@ -174,7 +173,7 @@ margin-left: 50px;
 
 #Mixormatch{
     top: 20%;
-    left: 60%;
+    left: 58%;
     position: absolute;
     display: inline-block;
     color: #2196f3;
@@ -184,7 +183,8 @@ margin-left: 50px;
     font-size: 40px;
     overflow: hidden;
     transition: 0.2s;
-    display: none; /* temp for presentation*/
+    box-shadow: 10px 10px 5px rgb(0, 0, 3);
+
 }
 #Mixormatch:hover{
     color: #255784;
